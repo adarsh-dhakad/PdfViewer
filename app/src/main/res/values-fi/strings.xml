@@ -1,0 +1,7 @@
+<resources>
+    <!-- finnish -->
+    <string name="app_name">PDF-katseluohjelma</string>
+    <string name="view_pdf">VALITSE PDF</string>
+    <string name="error">Virhe.</string>
+    <string name="please_select_pdf_file_again">Valitse PDF-tiedosto uudelleen.</string>
+</resources>

@@ -1,0 +1,7 @@
+<resources>
+    <!-- Russian -->
+    <string name="app_name">ПРОСМОТР PDF</string>
+    <string name="view_pdf">VELG PDF</string>
+    <string name="error">Ошибка.</string>
+    <string name="please_select_pdf_file_again">Выберите файл PDF еще раз.</string>
+</resources>

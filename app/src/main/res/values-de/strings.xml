@@ -1,0 +1,7 @@
+<resources>
+    <!-- German -->
+    <string name="app_name">PDF-VIEWER</string>
+    <string name="view_pdf">PDF auswählen</string>
+    <string name="error">Fehler.</string>
+    <string name="please_select_pdf_file_again">Bitte PDF-Datei erneut auswählen.</string>
+</resources>
