@@ -24,8 +24,8 @@ android {
         applicationId "com.adarsh.pdf"
         minSdk 21
         targetSdk 33
-        versionCode 18
-        versionName "2.3.7"
+        versionCode 19
+        versionName "2.3.8"
 //        buildConfigField("String","API_KEY",API_KEY)
 //        buildConfigField("String","AD_ID",AD_ID)
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
