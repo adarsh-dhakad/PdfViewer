@@ -13,10 +13,6 @@ import com.adarsh.pdf.R
 import com.adarsh.pdf.databinding.ActivityMainBinding
 import com.adarsh.pdf.fragments.HomeFragment
 import com.adarsh.pdf.fragments.PdfViewerFragment
-import com.adarsh.pdf.utils.Constants.REQUEST_CODE_UPDATE
-import com.google.android.play.core.appupdate.AppUpdateManagerFactory
-import com.google.android.play.core.install.model.AppUpdateType.IMMEDIATE
-import com.google.android.play.core.install.model.UpdateAvailability
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -57,23 +53,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        val updateManager = AppUpdateManagerFactory.create(this)
-        updateManager.appUpdateInfo
-            .addOnSuccessListener {
-                if (it.updateAvailability() ==
-                    UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS
-                ) {
-                    updateManager.startUpdateFlowForResult(
-                        it,
-                        IMMEDIATE,
-                        this,
-                        REQUEST_CODE_UPDATE
-                    )
-                }
-            }
-    }
+
  private fun checkPermission(): Boolean {
     // checking of permissions.
     val permission1 =
