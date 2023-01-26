@@ -52,7 +52,7 @@ class PdfViewerFragment : Fragment() {
         binding.textSelectAgainText.visibility = View.GONE
     }
     private val passwordListener = (OnErrorListener { t ->
-        if (t is PdfPasswordException) {
+        if (t is PdfPasswordException || t is ClassNotFoundException) {
             val builder = AlertDialog.Builder(requireContext())
             //set title for alert dialog
             builder.setTitle("This file is protected")

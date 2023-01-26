@@ -1,9 +1,18 @@
 package com.adarsh.pdf.fragments
 
+//import com.google.android.gms.ads.AdListener
+//import com.google.android.gms.ads.AdRequest
+//import com.google.android.gms.ads.AdView
+//import com.google.android.gms.ads.LoadAdError
+import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.Activity.RESULT_OK
 import android.content.ContentValues.TAG
 import android.content.Intent
+import android.content.IntentSender
 import android.content.pm.PackageManager
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -19,21 +28,32 @@ import androidx.fragment.app.FragmentManager
 import com.adarsh.pdf.R
 import com.adarsh.pdf.activities.MainActivity
 import com.adarsh.pdf.databinding.FragmentHomeBinding
+import com.adarsh.pdf.utils.Constants
+import com.adarsh.pdf.utils.PreferenceHelper
 import com.google.android.gms.ads.*
-import com.google.android.gms.ads.interstitial.InterstitialAd
-import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import com.google.android.play.core.appupdate.AppUpdateManager
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory
+import com.google.android.play.core.appupdate.AppUpdateOptions
+import com.google.android.play.core.install.model.ActivityResult
+import com.google.android.play.core.install.model.AppUpdateType
+import com.google.android.play.core.install.model.AppUpdateType.IMMEDIATE
+import com.google.android.play.core.install.model.UpdateAvailability
+import com.google.android.things.update.UpdateManager
+import com.google.android.things.update.UpdatePolicy
+import com.google.android.things.update.UpdatePolicy.POLICY_APPLY_AND_REBOOT
+import java.text.SimpleDateFormat
 import java.util.*
-//import com.google.android.gms.ads.AdListener
-//import com.google.android.gms.ads.AdRequest
-//import com.google.android.gms.ads.AdView
-//import com.google.android.gms.ads.LoadAdError
 import java.util.concurrent.TimeUnit
 import kotlin.math.pow
+//import com.yalantis.ucrop.UCrop
+
 
 class HomeFragment : Fragment() {
    private lateinit var binding: FragmentHomeBinding
+    private lateinit var updateManager: AppUpdateManager
     lateinit var mAdView: AdView
     lateinit var adRequest:AdRequest
+    private val RC_APP_UPDATE = 72
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
 
@@ -51,7 +71,13 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater,container,false)
 
         binding.btnPdfRender.setOnClickListener {
-            if (ContextCompat.checkSelfPermission(
+
+            if(Build.VERSION.SDK_INT == Build.VERSION_CODES.TIRAMISU){
+                val gallery = Intent()
+                gallery.type = "application/*"
+                gallery.action = Intent.ACTION_GET_CONTENT
+                resultLauncherGallery.launch(gallery)
+            }else if (ContextCompat.checkSelfPermission(
                     requireContext(),
                     android.Manifest.permission.READ_EXTERNAL_STORAGE
                 ) ==
@@ -137,4 +163,5 @@ class HomeFragment : Fragment() {
         }
 
     }
+
 }

@@ -24,8 +24,8 @@ android {
         applicationId "com.adarsh.pdf"
         minSdk 21
         targetSdk 33
-        versionCode 19
-        versionName "2.3.8"
+        versionCode 22
+        versionName "2.4.1"
 //        buildConfigField("String","API_KEY",API_KEY)
 //        buildConfigField("String","AD_ID",AD_ID)
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -89,6 +89,13 @@ dependencies {
     // https://mvnrepository.com/artifact/es.voghdev.pdfviewpager/library
 //    implementation 'es.voghdev.pdfviewpager:library:1.1.2'
     implementation 'com.google.android.gms:play-services-ads-lite:21.3.0'
+    implementation 'com.google.android.things:androidthings:1.0'
+    implementation 'com.google.android.play:core-ktx:1.8.1'
     //pdf Viewer
   //  implementation 'es.voghdev.pdfviewpager:library:1.1.2'
+    //push Down Anim
+
+//    implementation( 'com.github.thekhaeng:pushdown-anim-click:1.1.1' ){
+//        exclude group: 'com.android.support'
+//    }
 }
