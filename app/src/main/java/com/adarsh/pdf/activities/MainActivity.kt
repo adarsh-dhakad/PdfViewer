@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 //        }
         if (checkPermission()) {
 
-         //   Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show()
+            //   Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show()
         } else {
             requestPermission()
         }
@@ -54,52 +54,52 @@ class MainActivity : AppCompatActivity() {
     }
 
 
- private fun checkPermission(): Boolean {
-    // checking of permissions.
-    val permission1 =
-        ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-    val permission2 =
-        ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.READ_EXTERNAL_STORAGE)
-    return permission1 == PackageManager.PERMISSION_GRANTED && permission2 == PackageManager.PERMISSION_GRANTED
-}
-
-private fun requestPermission() {
-    // requesting permissions if not provided.
-    if(Build.VERSION.SDK_INT == Build.VERSION_CODES.TIRAMISU){
-        return
+    private fun checkPermission(): Boolean {
+        // checking of permissions.
+        val permission1 =
+            ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        val permission2 =
+            ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.READ_EXTERNAL_STORAGE)
+        return permission1 == PackageManager.PERMISSION_GRANTED && permission2 == PackageManager.PERMISSION_GRANTED
     }
-    ActivityCompat.requestPermissions(
-        this,
-        arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE),
-        PERMISSION_REQUEST_CODE
-    )
-}
 
-override fun onRequestPermissionsResult(
-    requestCode: Int,
-    permissions: Array<String>,
-    grantResults: IntArray
-) {
-    super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-    if (requestCode == PERMISSION_REQUEST_CODE) {
-        if (grantResults.isNotEmpty()) {
+    private fun requestPermission() {
+        // requesting permissions if not provided.
+        if(Build.VERSION.SDK_INT == Build.VERSION_CODES.TIRAMISU){
+            return
+        }
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE),
+            PERMISSION_REQUEST_CODE
+        )
+    }
 
-            // after requesting permissions we are showing
-            // users a toast message of permission granted.
-            val writeStorage = grantResults[0] == PackageManager.PERMISSION_GRANTED
-            val readStorage = grantResults[1] == PackageManager.PERMISSION_GRANTED
-            if (writeStorage && readStorage) {
-                Toast.makeText(this, "Permission Granted..", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "Permission Denied.", Toast.LENGTH_SHORT).show()
-                finish()
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if (grantResults.isNotEmpty()) {
+
+                // after requesting permissions we are showing
+                // users a toast message of permission granted.
+                val writeStorage = grantResults[0] == PackageManager.PERMISSION_GRANTED
+                val readStorage = grantResults[1] == PackageManager.PERMISSION_GRANTED
+                if (writeStorage && readStorage) {
+                    Toast.makeText(this, "Permission Granted..", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Permission Denied.", Toast.LENGTH_SHORT).show()
+                    finish()
+                }
             }
         }
     }
-}
 
-companion object {
-    private const val PERMISSION_REQUEST_CODE = 200
-    const val READ_STORAGE_PERMISSION_CODE = 12
-}
+    companion object {
+        private const val PERMISSION_REQUEST_CODE = 200
+        const val READ_STORAGE_PERMISSION_CODE = 12
+    }
 }
