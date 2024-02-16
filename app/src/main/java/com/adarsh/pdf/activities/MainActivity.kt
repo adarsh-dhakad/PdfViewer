@@ -65,6 +65,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun requestPermission() {
         // requesting permissions if not provided.
+        if(Build.VERSION.SDK_INT == Build.VERSION_CODES.UPSIDE_DOWN_CAKE){
+            return
+        }
         if(Build.VERSION.SDK_INT == Build.VERSION_CODES.TIRAMISU){
             return
         }
@@ -92,7 +95,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "Permission Granted..", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this, "Permission Denied.", Toast.LENGTH_SHORT).show()
-                    finish()
+                 //   finish()
                 }
             }
         }

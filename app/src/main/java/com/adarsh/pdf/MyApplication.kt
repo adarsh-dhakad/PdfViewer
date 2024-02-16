@@ -12,8 +12,8 @@ class MyApplication : Application() {
     private lateinit var appOpenAdManager: AppOpenAdManager
     override fun onCreate() {
         super.onCreate()
-        MobileAds.initialize(this) {}
-        appOpenAdManager = AppOpenAdManager()
+    //    MobileAds.initialize(this) {}
+     //   appOpenAdManager = AppOpenAdManager()
     }
 
     /** Inner class that loads and shows app open ads. */

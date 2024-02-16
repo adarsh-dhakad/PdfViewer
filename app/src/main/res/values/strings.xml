@@ -3,4 +3,6 @@
     <string name="view_pdf">SELECT PDF</string>
     <string name="error">Error.</string>
     <string name="please_select_pdf_file_again">Please select PDF file again.</string>
+    <string name="more_menu">More Menu\n</string>
+    <string name="privacy_settings">Privacy Settings\n</string>
 </resources>

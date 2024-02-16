@@ -7,6 +7,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,10 +35,7 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//        MobileAds.initialize(requireContext()) {}
-//        val testDeviceIds = Arrays.asList("5eb2f91f-7863-4030-ab2b-10ca1ad1ad1abe1")
-//        val configuration = RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build()
-//        MobileAds.setRequestConfiguration(configuration)
+
 
     }
 
@@ -45,6 +43,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        Log.d("devKey" , "fragment home")
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         binding.btnPdfRender.setOnClickListener {

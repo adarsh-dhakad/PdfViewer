@@ -5,14 +5,14 @@ plugins {
 
 android {
     namespace = "com.adarsh.pdf"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.adarsh.pdf"
         minSdk = 22
-        targetSdk = 33
-        versionCode = 24
-        versionName = "2.4.2"
+        targetSdk = 34
+        versionCode = 27
+        versionName = "2.4.5"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -53,5 +53,6 @@ dependencies {
     // pdf viewer
     implementation("com.github.mhiew:android-pdf-viewer:3.2.0-beta.3")
 
-    implementation("com.google.android.gms:play-services-ads-lite:22.2.0")
+    implementation("com.google.android.gms:play-services-ads-lite:22.6.0")
+   // implementation("com.google.android.gms:play-services-ads:22.6.0")
 }
