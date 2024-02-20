@@ -11,8 +11,8 @@ android {
         applicationId = "com.adarsh.pdf"
         minSdk = 22
         targetSdk = 34
-        versionCode = 27
-        versionName = "2.4.5"
+        versionCode = 34
+        versionName = "2.5.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -53,6 +53,6 @@ dependencies {
     // pdf viewer
     implementation("com.github.mhiew:android-pdf-viewer:3.2.0-beta.3")
 
-    implementation("com.google.android.gms:play-services-ads-lite:22.6.0")
+   //   implementation("com.google.android.gms:play-services-ads-lite:22.6.0")
    // implementation("com.google.android.gms:play-services-ads:22.6.0")
 }

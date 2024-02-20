@@ -19,9 +19,9 @@ import androidx.fragment.app.FragmentManager
 import com.adarsh.pdf.R
 import com.adarsh.pdf.activities.MainActivity
 import com.adarsh.pdf.databinding.FragmentHomeBinding
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.LoadAdError
+//import com.google.android.gms.ads.AdListener
+//import com.google.android.gms.ads.AdRequest
+//import com.google.android.gms.ads.LoadAdError
 import java.util.concurrent.TimeUnit
 import kotlin.math.pow
 
@@ -30,7 +30,7 @@ import kotlin.math.pow
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
-    lateinit var adRequest: AdRequest
+//    lateinit var adRequest: AdRequest
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,7 +72,7 @@ class HomeFragment : Fragment() {
                 )
             }
         }
-        bannerAds()
+    //    bannerAds()
         return binding.root
     }
 
@@ -96,46 +96,46 @@ class HomeFragment : Fragment() {
 
         }
 
-    private fun bannerAds() {
-        adRequest = AdRequest.Builder()
-            .build()
-        var retryAttempt = 0
-        binding.adView.loadAd(adRequest)
-        binding.adView.adListener = object : AdListener() {
-            override fun onAdLoaded() {
-                retryAttempt = 0
-            }
-
-            override fun onAdFailedToLoad(adError: LoadAdError) {
-                // We recommend retrying with exponentially higher delays up to a maximum delay (in this case 64 seconds)
-                // 2 power 6 = 64
-                retryAttempt++
-                val delayMillis: Long = TimeUnit.SECONDS.toMillis(
-                    2.0.pow(6.coerceAtMost(retryAttempt).toDouble()).toLong()
-                )
-
-
-                Handler(Looper.getMainLooper()).postDelayed(
-                    {
-                        binding.adView.loadAd(adRequest)
-                    },
-                    delayMillis
-                )
-            }
-
-            override fun onAdOpened() {
-                //         mAdView.visibility = View.GONE
-            }
-
-            override fun onAdClicked() {
-                //        mAdView.visibility = View.GONE
-            }
-
-            override fun onAdClosed() {
-                //      mAdView.visibility = View.GONE
-            }
-        }
-
-    }
+//    private fun bannerAds() {
+//        adRequest = AdRequest.Builder()
+//            .build()
+//        var retryAttempt = 0
+//        binding.adView.loadAd(adRequest)
+//        binding.adView.adListener = object : AdListener() {
+//            override fun onAdLoaded() {
+//                retryAttempt = 0
+//            }
+//
+//            override fun onAdFailedToLoad(adError: LoadAdError) {
+//                // We recommend retrying with exponentially higher delays up to a maximum delay (in this case 64 seconds)
+//                // 2 power 6 = 64
+//                retryAttempt++
+//                val delayMillis: Long = TimeUnit.SECONDS.toMillis(
+//                    2.0.pow(6.coerceAtMost(retryAttempt).toDouble()).toLong()
+//                )
+//
+//
+//                Handler(Looper.getMainLooper()).postDelayed(
+//                    {
+//                        binding.adView.loadAd(adRequest)
+//                    },
+//                    delayMillis
+//                )
+//            }
+//
+//            override fun onAdOpened() {
+//                //         mAdView.visibility = View.GONE
+//            }
+//
+//            override fun onAdClicked() {
+//                //        mAdView.visibility = View.GONE
+//            }
+//
+//            override fun onAdClosed() {
+//                //      mAdView.visibility = View.GONE
+//            }
+//        }
+//
+//    }
 
 }
